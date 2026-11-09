@@ -1,0 +1,13 @@
+# PROYECTO: IberoTech | Actividad 4 - Registro y control de información
+# ARCHIVO: .gitignore
+# DESCRIPCIÓN: Exclusiones de Git para archivos temporales y secretos.
+# Evitar credenciales, archivos del editor y estados locales.
+.env
+.env.*
+!.env.example
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+vendor/

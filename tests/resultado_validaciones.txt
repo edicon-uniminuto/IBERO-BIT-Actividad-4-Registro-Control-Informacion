@@ -1,0 +1,36 @@
+IberoTech - Actividad 4 | Verificaciones ejecutadas en entorno de preparación
+Fecha: 2026-11-08
+
+=== PHP -l: archivos del proyecto ===
+No syntax errors detected in /mnt/data/IBERO_Actividad_4_Entrega/crud-ibero/backend/categorias.php
+No syntax errors detected in /mnt/data/IBERO_Actividad_4_Entrega/crud-ibero/backend/funciones.php
+No syntax errors detected in /mnt/data/IBERO_Actividad_4_Entrega/crud-ibero/backend/inicio.php
+No syntax errors detected in /mnt/data/IBERO_Actividad_4_Entrega/crud-ibero/backend/inventario.php
+No syntax errors detected in /mnt/data/IBERO_Actividad_4_Entrega/crud-ibero/backend/vistas.php
+No syntax errors detected in /mnt/data/IBERO_Actividad_4_Entrega/crud-ibero/categorias.php
+No syntax errors detected in /mnt/data/IBERO_Actividad_4_Entrega/crud-ibero/conexion.php
+No syntax errors detected in /mnt/data/IBERO_Actividad_4_Entrega/crud-ibero/exportar.php
+No syntax errors detected in /mnt/data/IBERO_Actividad_4_Entrega/crud-ibero/index.php
+No syntax errors detected in /mnt/data/IBERO_Actividad_4_Entrega/crud-ibero/movimientos.php
+No syntax errors detected in /mnt/data/IBERO_Actividad_4_Entrega/crud-ibero/tests/test_validaciones.php
+
+=== Pruebas automatizadas sin DB ===
+[OK] Producto válido
+[OK] Nombre menor a 3 caracteres
+[OK] Precio inferior a 1000
+[OK] Stock negativo
+[OK] Stock decimal
+[OK] Categoría desconocida
+[OK] Marca vacía
+[OK] Precio con demasiados decimales
+[OK] Validación nombre de categoría
+[OK] ID numérico positivo
+[OK] Escapado HTML
+[OK] Importe formateado
+[OK] Zona horaria Bogotá
+
+Resultado: 13/13 pruebas superadas.
+
+=== Controladores y límites del entorno ===
+PHP 8.4.24 | PDO drivers: ninguno
+No se presenta prueba MySQL/Laragon: debe ejecutarse en Windows con PDO MySQL configurado.

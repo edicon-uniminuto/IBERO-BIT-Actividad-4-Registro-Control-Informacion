@@ -1,0 +1,4 @@
+# PROYECTO: IberoTech | Actividad 4 - Registro y control de información
+# ARCHIVO: tests/.htaccess
+# DESCRIPCIÓN: Restricciones de acceso HTTP a archivos internos.
+Require all denied

@@ -1,0 +1,12 @@
+<!--
+  ============================================================
+  PROYECTO: IberoTech - Actividad 4 - Registro y control de información
+  INSTITUCIÓN: BIT - Corporación Universitaria Iberoamericana
+  ESTUDIANTE: Edilberto Elias Contreras Sierra
+  DOCENTE: Jairo Niño
+  ARCHIVO: frontend/favicon.svg
+  TECNOLOGÍAS: SVG, XML
+  DESCRIPCIÓN: Icono vectorial de identificación del gestor IberoTech.
+  ============================================================
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#173b6b"/><path d="M12 17h40v7H12zM12 29h25v7H12zM12 41h40v7H12z" fill="#73c9ff"/><circle cx="46" cy="32" r="5" fill="#f7bd5b"/></svg>
