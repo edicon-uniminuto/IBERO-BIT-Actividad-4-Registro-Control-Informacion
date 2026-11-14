@@ -5,14 +5,14 @@
    INSTITUCIÓN: BIT - Corporación Universitaria Iberoamericana
    ESTUDIANTE: Edilberto Elias Contreras Sierra
    DOCENTE: Jairo Niño
-   ARCHIVO: movimientos.php
+   ARCHIVO: backend/public/movimientos.php
    TECNOLOGÍAS: HTML5, PHP 8, PDO
    DESCRIPCIÓN: Consulta de los movimientos de stock registrados en la base de datos.
    ============================================================
 */
 declare(strict_types=1);
-require_once __DIR__ . '/backend/inicio.php';
-require_once __DIR__ . '/backend/vistas.php';
+require_once dirname(__DIR__) . '/inicio.php';
+require_once dirname(__DIR__) . '/vistas.php';
 $consulta = $pdo->query('SELECT id, producto_nombre, variacion, motivo, creado_en FROM movimientos_stock ORDER BY id DESC LIMIT 100');
 $movimientos = $consulta->fetchAll();
 cabecera('Movimientos', 'movimientos');

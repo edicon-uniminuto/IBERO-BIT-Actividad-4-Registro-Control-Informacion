@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+   ============================================================
+   PROYECTO: IberoTech - Actividad 4 - Registro y control de información
+   INSTITUCIÓN: BIT - Corporación Universitaria Iberoamericana
+   ESTUDIANTE: Edilberto Elias Contreras Sierra
+   DOCENTE: Jairo Niño
+   ARCHIVO: frontend/app.html
+   TECNOLOGÍAS: HTML5, CSS3, JavaScript, Fetch API
+   DESCRIPCIÓN: Frontend HTML independiente para el CRUD de productos sin recargar la página.
+   ============================================================
+-->
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Gestor de inventario IberoTech con PHP, MySQL y Laragon"><title>Inventario API REST | IberoTech</title><link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="stylesheet" href="css/estilos.css"></head><body><div class="app-layout"><aside class="sidebar"><a class="logo" href="../backend/public/index.php"><span class="logo-icon">IT</span><span><strong>IberoTech</strong><small>Gestor de inventario</small></span></a><div class="sidebar-label">ADMINISTRACIÓN</div><nav class="nav" aria-label="Navegación principal"><a class="nav-link activo" href="app.html"><span class="nav-icon">▦</span>Inventario API</a><a class="nav-link" href="../backend/public/index.php"><span class="nav-icon">▦</span>Productos (PHP)</a><a class="nav-link" href="../backend/public/categorias.php"><span class="nav-icon">◈</span>Categorías</a><a class="nav-link" href="../backend/public/movimientos.php"><span class="nav-icon">↗</span>Movimientos</a></nav><div class="sidebar-note"><span class="note-dot"></span> PHP 8 + MySQL<br><small>Actividad 4 · Diplomado Full Stack</small></div></aside><main class="main"><header class="topbar"><div class="topbar-crumb">Diplomado Desarrollador Full Stack <span>/</span> Inventario API REST</div><div class="topbar-status"><span class="status-dot"></span> Entorno local · Laragon</div></header><div class="page">
+<section class="page-heading">
+  <div><div class="eyebrow">CONTROL DE INVENTARIO <span class="eyebrow-line"></span> IBEROTECH</div>
+    <h1>Gestión de productos</h1>
+    <p>CRUD de productos mediante API REST y fetch(), sin recargar la página.</p></div>
+  <div class="heading-actions"><a class="btn btn-soft" href="../backend/public/categorias.php">Administrar categorías</a><a class="btn btn-blue" href="../backend/public/exportar.php">⇩ Exportar CSV</a></div>
+</section>
+<div id="mensaje" class="alert" role="status" hidden></div>
+<noscript>Activa JavaScript para usar la versión API REST.</noscript>
+<div class="kpi-grid">
+  <article class="kpi-card"><div class="kpi-icon blue">▦</div><div><span>Total de productos</span><strong id="kpi-productos">—</strong><small>Registros según el filtro</small></div></article>
+  <article class="kpi-card"><div class="kpi-icon teal">▤</div><div><span>Unidades disponibles</span><strong id="kpi-unidades">—</strong><small>Existencias según el filtro</small></div></article>
+  <article class="kpi-card"><div class="kpi-icon violet">$</div><div><span>Valor del inventario</span><strong id="kpi-valor">—</strong><small>Precio × stock</small></div></article>
+  <article class="kpi-card"><div class="kpi-icon amber">!</div><div><span>Stock bajo</span><strong id="kpi-bajo">—</strong><small>Entre 1 y 3 unidades</small></div></article>
+</div>
+
+<div class="content-grid">
+  <section class="surface form-surface" id="formulario-producto"><div class="surface-heading"><div><div class="section-kicker">FORMULARIO</div><h2 id="form-titulo">Nuevo producto</h2></div><span class="surface-icon">✎</span></div>
+    <p class="form-intro">Completa la información del producto. Todos los campos son obligatorios.</p>
+    <form id="producto-form" class="product-form">
+      <input type="hidden" id="producto-id" name="id" value="">
+      <label for="nombre">Nombre del producto</label><input id="nombre" name="nombre" type="text" maxlength="120" minlength="3" required placeholder="Ej. Monitor IPS 27 pulgadas">
+      <label for="marca">Marca</label><input id="marca" name="marca" type="text" maxlength="60" minlength="2" required placeholder="Ej. Samsung">
+      <label for="categoria">Categoría</label><select id="categoria" name="categoria" required><option value="">Selecciona una categoría</option></select>
+      <div class="form-two"><div><label for="precio">Precio unitario (COP)</label><input id="precio" type="number" name="precio" min="1000" max="9999999999.99" step="0.01" required placeholder="1000.00"></div><div><label for="stock">Stock inicial</label><input id="stock" type="number" name="stock" value="0" min="0" max="1000000" step="1" required></div></div>
+      <button id="guardar" class="btn btn-blue btn-full" type="submit" disabled>+ Registrar producto</button>
+      <button id="cancelar" class="btn btn-soft btn-full" type="button" hidden>Cancelar edición</button>
+      <div class="form-help">ⓘ El precio mínimo permitido es de $1.000 y el stock nunca puede ser negativo.</div>
+    </form>
+  </section>
+  <section class="surface table-surface"><div class="surface-heading"><div><div class="section-kicker">CATÁLOGO</div><h2>Productos registrados</h2></div><span class="records-count" id="contador">Cargando…</span></div>
+    <form id="filtros" class="filters"><div class="search-field"><span>⌕</span><input aria-label="Buscar producto" id="buscar" type="search" name="q" maxlength="120" placeholder="Buscar nombre, marca o categoría…"></div><select aria-label="Filtrar categoría" id="filtro-categoria" name="categoria"><option value="">Todas las categorías</option></select><button class="btn btn-blue" type="submit">Buscar</button><button id="limpiar" type="button" class="btn btn-soft">Limpiar</button></form>
+    <div class="table-scroll"><table><thead><tr><th>PRODUCTO</th><th>CATEGORÍA</th><th>PRECIO</th><th>EXISTENCIAS</th><th>ACCIONES</th></tr></thead><tbody id="productos"><tr><td colspan="5" class="empty-state">Cargando inventario…</td></tr></tbody></table></div>
+    <div class="table-foot"><span id="total-resultados">Consultando registros…</span><a href="../backend/public/movimientos.php">Ver historial de movimientos ↗</a></div>
+  </section>
+</div>
+
+</div><footer class="footer">IberoTech · CRUD académico con PHP, HTML, CSS, JavaScript y MySQL <span>IBERO · Actividad 4</span></footer></main></div><script src="js/rest.js" defer></script></body></html>

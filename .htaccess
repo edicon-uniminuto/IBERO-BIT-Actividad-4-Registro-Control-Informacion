@@ -1,0 +1,11 @@
+# PROYECTO: IberoTech | Actividad 4
+# ARCHIVO: .htaccess
+# DESCRIPCIÓN: Entrada principal y compatibilidad con las rutas anteriores.
+Options -Indexes
+RewriteEngine On
+RewriteCond %{REQUEST_URI} ^(.*)/$
+RewriteRule ^$ %1/frontend/app.html [R=302,L]
+RewriteCond %{REQUEST_URI} ^(.*)/app\.html$
+RewriteRule ^app\.html$ %1/frontend/app.html [R=307,L]
+RewriteCond %{REQUEST_URI} ^(.*)/(?:index|categorias|movimientos|exportar|api)\.php$
+RewriteRule ^(index|categorias|movimientos|exportar|api)\.php$ %1/backend/public/$1.php [R=307,L]

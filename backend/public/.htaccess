@@ -1,0 +1,8 @@
+# PROYECTO: IberoTech | Actividad 4
+# ARCHIVO: backend/public/.htaccess
+# DESCRIPCIÓN: Expone únicamente los cinco puntos de entrada HTTP.
+Options -Indexes
+Require all denied
+<FilesMatch "^(index|categorias|movimientos|exportar|api)\.php$">
+    Require all granted
+</FilesMatch>

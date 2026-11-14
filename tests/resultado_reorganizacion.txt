@@ -1,0 +1,116 @@
+Actividad 4 | Reorganización de rutas — 14/11/2026
+Apache 2.4.68 + PHP, SQLite mediante adaptador temporal (no incluido). MySQL real en Laragon pendiente.
+Pruebas HTTP y de CRUD:
+OK Redirección /
+OK Redirección app.html
+OK Redirección api.php?id=4
+OK Redirección index.php
+OK Redirección categorias.php
+OK Redirección movimientos.php
+OK Redirección exportar.php
+OK Acceso bloqueado backend/conexion.php
+OK Acceso bloqueado backend/inicio.php
+OK Acceso bloqueado backend/inventario.php
+OK Acceso bloqueado backend/vistas.php
+OK Acceso bloqueado backend/categorias.php
+OK Acceso bloqueado database/01_schema.sql
+OK Acceso bloqueado tests/test_validaciones.php
+OK Acceso bloqueado docs/02_archivos.md
+OK Acceso bloqueado backend/public/
+OK GET : HTTP 200 (real 200)
+OK KPIs semilla
+OK GET {'q': 'teclado'}: HTTP 200 (real 200)
+OK Filtro y KPI
+OK GET {'id': 4}: HTTP 200 (real 200)
+OK GET individual
+OK POST : HTTP 201 (real 201)
+OK GET {'id': 6}: HTTP 200 (real 200)
+OK Persistencia alta
+OK PUT {'id': 6}: HTTP 200 (real 200)
+OK GET {'id': 6}: HTTP 200 (real 200)
+OK Persistencia edición
+OK PUT {'id': 6}: HTTP 200 (real 200)
+OK PUT {'id': 6}: HTTP 200 (real 200)
+OK GET {'id': 6}: HTTP 200 (real 200)
+OK Ajustes +1/-1
+OK PUT {'id': 4}: HTTP 409 (real 409)
+OK POST : HTTP 400 (real 400)
+OK POST : HTTP 400 (real 400)
+OK POST : HTTP 400 (real 400)
+OK POST : HTTP 403 (real 403)
+OK GET {'id': 99999}: HTTP 404 (real 404)
+OK DELETE {'id': 6}: HTTP 200 (real 200)
+OK GET {'id': 6}: HTTP 404 (real 404)
+OK Historial y conservación al borrar
+OK index.php HTTP y contenido
+OK categorias.php HTTP y contenido
+OK movimientos.php HTTP y contenido
+OK exportar.php HTTP y contenido
+OK app.html HTTP y contenido
+OK index.php creado
+OK index.php actualizado
+OK index.php stock
+OK index.php stock
+OK PHP y API comparten datos
+OK CSV comparte datos
+OK Historial comparte datos
+OK index.php eliminado
+OK categorias.php categoria_creada
+OK categorias.php categoria_actualizada
+OK Categoría actualizada visible vía API
+OK categorias.php categoria_eliminada
+OK Categoría eliminada
+
+Verificación visual mediante puente HTTP a Apache (Chromium no permite navegar directamente a localhost):
+OK CSS HTTP css/estilos.css
+OK JS HTTP js/rest.js
+OK UI carga API sobre BD de prueba
+OK Ancho 320: sin desbordamientos de documento o KPIs
+OK Ancho 390: sin desbordamientos de documento o KPIs
+OK Ancho 768: sin desbordamientos de documento o KPIs
+OK Ancho 1024: sin desbordamientos de documento o KPIs
+OK Ancho 1440: sin desbordamientos de documento o KPIs
+OK UI POST y KPI
+La secuencia completa de edición y eliminación desde el navegador no finalizó en esta nueva ejecución; las operaciones REST y formularios sí se comprobaron mediante HTTP.
+
+OK SHA intacto database/.htaccess
+OK SHA intacto database/01_schema.sql
+OK SHA intacto database/02_seed.sql
+OK SHA intacto docs/previsualizaciones/01_inventario_vista_previa.png
+OK SHA intacto docs/previsualizaciones/02_categorias_vista_previa.png
+OK SHA intacto docs/previsualizaciones/03_movimientos_vista_previa.png
+OK SHA intacto docs/previsualizaciones/04_responsive_vista_previa.png
+OK SHA intacto docs/previsualizaciones/05_edicion_vista_previa.png
+OK SHA intacto docs/previsualizaciones/06_busqueda_vista_previa.png
+OK SHA intacto frontend/css/estilos.css
+OK SHA intacto frontend/js/app.js
+OK SHA intacto tests/resultado_validaciones.txt
+OK SHA intacto tests/test_validaciones.php
+OK SHA intacto docs/evidencias/REST_QA_1440.png
+OK SHA intacto docs/evidencias/REST_QA_390.png
+OK SHA intacto tests/resultado_api_rest.txt
+OK Sin duplicado raíz index.php
+OK Sin duplicado raíz categorias.php
+OK Sin duplicado raíz movimientos.php
+OK Sin duplicado raíz exportar.php
+OK Sin duplicado raíz api.php
+OK Sin duplicado raíz conexion.php
+OK Sin duplicado raíz app.html
+
+Sintaxis PHP: 12 archivos correctos.
+[OK] Producto válido
+[OK] Nombre menor a 3 caracteres
+[OK] Precio inferior a 1000
+[OK] Stock negativo
+[OK] Stock decimal
+[OK] Categoría desconocida
+[OK] Marca vacía
+[OK] Precio con demasiados decimales
+[OK] Validación nombre de categoría
+[OK] ID numérico positivo
+[OK] Escapado HTML
+[OK] Importe formateado
+[OK] Zona horaria Bogotá
+
+Resultado: 13/13 pruebas superadas.
+

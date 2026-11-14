@@ -1,0 +1,96 @@
+[OK] Sintaxis PHP: 12 archivos
+[OK] Sintaxis JavaScript REST
+[OK] Validaciones originales 13/13
+[OK] app.html sin código PHP
+[OK] HTTP PHP real: Respuesta JSON ante MySQL no disponible (503)
+[OK] HTTP PHP real: ID inválido (400)
+[OK] HTTP PHP real: PUT sin ID (400)
+[OK] HTTP PHP real: Método no permitido (405)
+[OK] HTTP PHP real: JSON mal formado (400)
+[OK] HTTP PHP real: Tipo de contenido incorrecto (415)
+[OK] HTTP PHP real: Protección CSRF (403)
+[OK] HTTP PHP real: OPTIONS (200)
+[OK] HTML: IDs únicos
+[OK] HTML: formulario y tabla del CRUD
+[OK] HTML: recursos CSS/JS locales disponibles
+[OK] HTML: carga el cliente REST
+
+IMPORTANTE: Las pruebas HTTP anteriores ejecutaron api.php real sin pdo_mysql. La navegación de Chromium fue bloqueada por las restricciones del entorno; no se verificó interacción visual ni persistencia MySQL. Completar ambas en Laragon según docs/04_api_rest.md.
+
+
+=== REVALIDACIÓN DEL 14/11/2026 ===
+Pruebas PHP y HTTP con adaptador de SQLite temporal (no incluido), sin pdo_mysql. No equivalen a una prueba sobre MySQL/InnoDB.
+Pruebas Chromium offline: HTML/CSS/JS reales, puente de solicitudes al servidor PHP de prueba; no se navegó por la URL real debido a política del navegador.
+Se corrigió formato COP y bloqueo de filtros durante operaciones; CSS ajustado solo para KPI del HTML.
+Se verificó la interfaz corregida nuevamente. Las capturas son evidencias de este entorno de prueba, no de Laragon/MySQL.
+
+--- API PHP (sin cambios) ---
+
+ACTIVIDAD 4
+OK GET : HTTP 200 (real 200)
+OK KPIs semilla
+OK GET {'q': 'teclado'}: HTTP 200 (real 200)
+OK Filtro y KPI
+OK GET {'id': 4}: HTTP 200 (real 200)
+OK GET individual
+OK POST : HTTP 201 (real 201)
+OK GET {'id': 6}: HTTP 200 (real 200)
+OK Persistencia alta
+OK PUT {'id': 6}: HTTP 200 (real 200)
+OK GET {'id': 6}: HTTP 200 (real 200)
+OK Persistencia edición
+OK PUT {'id': 6}: HTTP 200 (real 200)
+OK PUT {'id': 6}: HTTP 200 (real 200)
+OK GET {'id': 6}: HTTP 200 (real 200)
+OK Ajustes +1/-1
+OK PUT {'id': 4}: HTTP 409 (real 409)
+OK POST : HTTP 400 (real 400)
+OK POST : HTTP 400 (real 400)
+OK POST : HTTP 400 (real 400)
+OK POST : HTTP 403 (real 403)
+OK GET {'id': 99999}: HTTP 404 (real 404)
+OK DELETE {'id': 6}: HTTP 200 (real 200)
+OK GET {'id': 6}: HTTP 404 (real 404)
+OK Historial y conservación al borrar
+OK index.php HTTP y contenido
+OK categorias.php HTTP y contenido
+OK movimientos.php HTTP y contenido
+OK exportar.php HTTP y contenido
+OK app.html HTTP y contenido
+
+
+--- Regresión de rutas PHP ---
+OK index.php creado
+OK index.php actualizado
+OK index.php stock
+OK index.php stock
+OK PHP y API comparten datos
+OK CSV comparte datos
+OK Historial comparte datos
+OK index.php eliminado
+OK categorias.php categoria_creada
+OK categorias.php categoria_actualizada
+OK Categoría actualizada visible vía API
+OK categorias.php categoria_eliminada
+OK Categoría eliminada
+
+
+--- Interfaz REST después de correcciones ---
+
+ACTIVIDAD 4
+OK UI carga API sobre BD de prueba
+KPI $21.670.000
+OK Ancho 320: sin desbordamientos de documento o KPIs
+LAYOUT 4 320 {'w': 320, 's': 320, 'k': [{'w': 290, 's': 290}, {'w': 290, 's': 290}, {'w': 290, 's': 290}, {'w': 290, 's': 290}]}
+OK Ancho 390: sin desbordamientos de documento o KPIs
+LAYOUT 4 390 {'w': 390, 's': 390, 'k': [{'w': 174, 's': 174}, {'w': 174, 's': 174}, {'w': 174, 's': 174}, {'w': 174, 's': 174}]}
+OK Ancho 768: sin desbordamientos de documento o KPIs
+LAYOUT 4 768 {'w': 768, 's': 768, 'k': [{'w': 248, 's': 248}, {'w': 248, 's': 248}, {'w': 248, 's': 248}, {'w': 248, 's': 248}]}
+OK Ancho 1024: sin desbordamientos de documento o KPIs
+LAYOUT 4 1024 {'w': 1024, 's': 1024, 'k': [{'w': 376, 's': 376}, {'w': 376, 's': 376}, {'w': 376, 's': 376}, {'w': 376, 's': 376}]}
+OK Ancho 1440: sin desbordamientos de documento o KPIs
+LAYOUT 4 1440 {'w': 1440, 's': 1440, 'k': [{'w': 269, 's': 269}, {'w': 269, 's': 269}, {'w': 269, 's': 269}, {'w': 269, 's': 269}]}
+OK UI POST y KPI
+OK UI búsqueda y KPI reactivo
+OK UI CRUD y sin errores JS
+

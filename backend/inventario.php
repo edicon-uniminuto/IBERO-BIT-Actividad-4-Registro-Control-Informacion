@@ -52,7 +52,7 @@ function obtenerIndicadores(PDO $pdo): array
       FROM productos')->fetch();
 }
 
-function guardarProducto(PDO $pdo, array $datos, int $id): bool
+function guardarProducto(PDO $pdo, array $datos, int $id, ?int &$idCreado = null): bool
 {
     $nombre = trim((string) $datos['nombre']);
     $marca = trim((string) $datos['marca']);
@@ -88,6 +88,8 @@ function guardarProducto(PDO $pdo, array $datos, int $id): bool
         $stmt = $pdo->prepare('INSERT INTO productos (nombre, marca, categoria, precio, stock) VALUES (?,?,?,?,?)');
         $stmt->execute([$nombre, $marca, $categoria, $precio, $stock]);
         $idNuevo = (int) $pdo->lastInsertId();
+        // Devuelve el identificador sin afectar los consumidores PHP anteriores.
+        $idCreado = $idNuevo;
         if ($stock > 0) registrarMovimiento($pdo, $idNuevo, $nombre, $stock, 'Stock inicial');
         $pdo->commit();
         return true;

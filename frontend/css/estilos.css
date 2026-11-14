@@ -16,3 +16,10 @@
 /* Impedir desbordamiento horizontal de tablas dentro de CSS Grid en móvil. */
 .content-grid>.surface{min-width:0}
 @media(max-width:1100px){.content-grid,.category-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* El atributo HTML hidden debe prevalecer sobre los estilos de botones y alertas. */
+#cancelar[hidden],#mensaje[hidden]{display:none!important}
+
+/* Solo en app.html: el importe del KPI no debe invadir la tarjeta contigua. */
+.kpi-card:has(#kpi-valor)>div:last-child{min-width:0}
+#kpi-valor{white-space:normal;overflow-wrap:anywhere}

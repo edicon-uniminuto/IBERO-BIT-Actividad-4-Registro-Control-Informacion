@@ -5,13 +5,13 @@
    INSTITUCIÓN: BIT - Corporación Universitaria Iberoamericana
    ESTUDIANTE: Edilberto Elias Contreras Sierra
    DOCENTE: Jairo Niño
-   ARCHIVO: exportar.php
+   ARCHIVO: backend/public/exportar.php
    TECNOLOGÍAS: PHP 8, PDO, CSV
    DESCRIPCIÓN: Exporta el inventario persistido a un archivo CSV para Excel.
    ============================================================
 */
 declare(strict_types=1);
-require_once __DIR__ . '/backend/inicio.php';
+require_once dirname(__DIR__) . '/inicio.php';
 $productos = listarProductos($pdo);
 header('Content-Type: text/csv; charset=utf-8');
 header('Content-Disposition: attachment; filename="iberotech_inventario_' . date('Ymd') . '.csv"');

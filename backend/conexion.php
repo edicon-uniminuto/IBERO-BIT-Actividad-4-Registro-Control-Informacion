@@ -5,7 +5,7 @@
    INSTITUCIÓN: BIT - Corporación Universitaria Iberoamericana
    ESTUDIANTE: Edilberto Elias Contreras Sierra
    DOCENTE: Jairo Niño
-   ARCHIVO: conexion.php
+   ARCHIVO: backend/conexion.php
    TECNOLOGÍAS: PHP 8, PDO, MySQL
    DESCRIPCIÓN: Centraliza la conexión PDO a la base de datos local de Laragon.
    ============================================================

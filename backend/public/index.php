@@ -5,14 +5,14 @@
    INSTITUCIÓN: BIT - Corporación Universitaria Iberoamericana
    ESTUDIANTE: Edilberto Elias Contreras Sierra
    DOCENTE: Jairo Niño
-   ARCHIVO: index.php
+   ARCHIVO: backend/public/index.php
    TECNOLOGÍAS: HTML5, PHP 8, PDO
    DESCRIPCIÓN: Pantalla principal y CRUD de productos con indicadores, filtros y ajustes.
    ============================================================
 */
 declare(strict_types=1);
-require_once __DIR__ . '/backend/inicio.php';
-require_once __DIR__ . '/backend/vistas.php';
+require_once dirname(__DIR__) . '/inicio.php';
+require_once dirname(__DIR__) . '/vistas.php';
 
 $errores = [];
 $categorias = obtenerCategorias($pdo);
